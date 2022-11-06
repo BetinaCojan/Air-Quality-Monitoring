@@ -81,4 +81,8 @@ Se citesc outputurile de tip analog, se afiseaza mesajele corespunzatoare tipulu
 
 **DEMO Proiect:**
 
-          https://www.youtube.com/watch?v=lSXaa1Sl8ds&ab_channel=CristinaRosu
+    https://www.youtube.com/watch?v=lSXaa1Sl8ds&ab_channel=CristinaRosu
+          
+**OCW proiect**
+
+    https://ocw.cs.pub.ro/courses/pm/prj2021/avaduva/monitorizareacalitatiiaerului
