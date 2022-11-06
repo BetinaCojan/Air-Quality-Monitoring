@@ -19,17 +19,17 @@ Acest detector este util pentru ca poate sa ajute oamenii sa-si imbunatateasca c
   Hardware Design
 Lista de piese:
 
-Placa de Dezvoltare Compatibila cu Arduino UNO R3 (ATmega328p + ATmega16u2
-Modul cu Buzzer activ
-Modul Senzor de Gaz MQ-135
-Rezistor Variabil 10k WH148 (Potențiometru)
-Rezistor 0.5W 220KΩ
-LED Roșu de 3 mm cu Lentile Difuze
-Placa test breadboard 400
-LCD 1602 albastru
-Bareta 40 x pini tata 2.54mm
-Fire Colorate Tată-Tată (10p, 30 cm)
-Fire Colorate Mamă-Tată (10p) 20 cm
+1. Placa de Dezvoltare Compatibila cu Arduino UNO R3 (ATmega328p + ATmega16u2
+2. Modul cu Buzzer activ
+3. Modul Senzor de Gaz MQ-135
+4. Rezistor Variabil 10k WH148 (Potențiometru)
+5. Rezistor 0.5W 220KΩ
+6. LED Roșu de 3 mm cu Lentile Difuze
+7. Placa test breadboard 400
+8. LCD 1602 albastru
+9. Bareta 40 x pini tata 2.54mm
+10. Fire Colorate Tată-Tată (10p, 30 cm)
+11. Fire Colorate Mamă-Tată (10p) 20 cm
 
 
   Schema Electrica:
@@ -39,16 +39,18 @@ Fire Colorate Mamă-Tată (10p) 20 cm
 Software Design
 Programul de fata a fost implementat in IDE-ul Arduino.
 
-Am utilizat bibliotecile:
+  Am utilizat bibliotecile:
 
-hd44780.h
-LiquidCrystal.h - biblioteca folosita pentru functiile LCD ului
-Avem functiile:
+- hd44780.h
+- LiquidCrystal.h - biblioteca folosita pentru functiile LCD ului
 
-setup()
+
+  Avem functiile:
+
+-- setup()
 Vom conecta buzzerul si led ul ca outputuri pentru placuta Arduino, iar senzorul ca input pentru aceasta. Setam baud rate ul de start si resetam LCD ul.
 
-loop()
+-- loop()
 Se citesc outputurile de tip analog, se afiseaza mesajele corespunzatoare tipului nivelelor poluarii aerului. Se verifica daca nivelul acestuia depaseste limita stabilita in program ca fiind maxima dupa care aerului detectat este unul poluat si se afiseaza mesajele pe ecranul LCD-ului. De asemenea, ledul si buzzerul vor fi utilizate pentru a atentiona acest lucru.
 
 
