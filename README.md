@@ -79,10 +79,10 @@ Se citesc outputurile de tip analog, se afiseaza mesajele corespunzatoare tipulu
 ![0 hard](https://user-images.githubusercontent.com/33146527/200193972-e1871188-55d5-41ea-a418-29fb48aa886d.jpg)
 
 
-**DEMO Proiect:**
+**DEMO**
 
     https://www.youtube.com/watch?v=lSXaa1Sl8ds&ab_channel=CristinaRosu
           
-**OCW proiect**
+**OCW**
 
     https://ocw.cs.pub.ro/courses/pm/prj2021/avaduva/monitorizareacalitatiiaerului
