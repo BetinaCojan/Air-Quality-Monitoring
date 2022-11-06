@@ -1,0 +1,55 @@
+#include <hd44780.h>
+#include <LiquidCrystal.h>
+
+const int rs=12, en=11, d4=4, d5=5, d6=6, d7=7;   // pinii LCD-ului conectati la Arduino
+LiquidCrystal lcd(rs,en,d4,d5,d6,d7);    // functia pentru LCD din biblioteca LiquidCrystal 
+
+int buz = 13;  // buzzer conectat la pinul 13 al placutei Arduino
+int led = 9;   // ledul conectat la pinul 9
+
+const int aqsensor = A0;    // outputul senzorului
+int threshold = 400         // Threshold level pentru calitatea aerului
+
+void setup() {
+
+  pinMode (buz,OUTPUT);     // buzzerul este conectat ca output placutei Arduino
+  pinMode (led,OUTPUT);     // ledul este conectat ca output pentru Arduino
+  pinMode (aqsensor,INPUT); // MQ135 este conectat ca input pentru Arduino
+
+  Serial.begin (9600);     // incepe serial communication cu un baud rate de 9600 
+
+  lcd.clear();             // facem reset la LCD 
+  lcd.begin (0, 0);        
+}
+
+void loop() {
+
+  int ppm = analogRead(aqsensor);  // senzorul citeste outputurile de tip analog de la A0 si le stocheaza in ppm
+
+  Serial.print("Air Quality: ");  // afiseaza mesaje la serial monnitor
+  Serial.println(ppm);            // afiseaza valoarea in serial monitor
+  
+  lcd.setCursor(0, 0);            // locul de unde porneste cursorul LCD ului 
+  lcd.print("Air Quality: ");     // afiseaza mesajul pe LCD 
+  lcd.print(ppm);                 // afiseaza valoarea senzorului
+
+  if (ppm > threshold)            // verifica daca ppm are valoarea mai mare decat valoarea setata ca maxim
+    {
+      tone(buz, 1000);             
+      lcd.setCursor(1,1);         
+      lcd.print("AQ Level HIGH");
+      Serial.println("AQ Level HIGH"); 
+      
+      delay(2000);
+      noTone(buz);     
+    }
+  else
+    {
+      digitalWrite(led,LOW);   // sare aici daca nu este mai mare valoarea decat cea setata ca maxim
+      digitalWrite(buz,LOW);   // se opreste buzzer-ul
+      lcd.setCursor(1,1);
+      lcd.print ("AQ Level Good");
+      Serial.println("AQ Level Good");
+    }  
+  delay (500);
+}
